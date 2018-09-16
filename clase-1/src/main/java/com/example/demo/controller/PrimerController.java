@@ -72,7 +72,7 @@ public class PrimerController {
 	@ResponseBody
 	public String hola( )
 	{
-		return "hola ";
+		return "hola !!!";
 	}
 	
 	
