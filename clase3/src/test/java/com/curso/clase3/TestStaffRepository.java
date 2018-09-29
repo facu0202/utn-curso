@@ -14,7 +14,6 @@ import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.curso.clase3.model.NonTeachingStaff;
-import com.curso.clase3.model.Staff;
 import com.curso.clase3.model.TeachingStaff;
 import com.curso.clase3.repository.NonTeachingStaffRepository;
 import com.curso.clase3.repository.TeachingStaffRepository;

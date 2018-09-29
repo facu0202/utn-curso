@@ -6,7 +6,6 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 import com.curso.clase3.model.NonTeachingStaff;
-import com.curso.clase3.model.TeachingStaff;
 
 @Repository
 public interface NonTeachingStaffRepository extends CrudRepository<NonTeachingStaff, Long> {

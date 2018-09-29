@@ -3,7 +3,6 @@ package com.curso.clase3.model;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
-import javax.persistence.PrimaryKeyJoinColumn;
 
 @Entity
 @DiscriminatorValue( value="TS" )
