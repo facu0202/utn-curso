@@ -39,7 +39,7 @@ public class TestStaffRepository {
 	
 	@Before
 	public void init() {
-		teachingStaff = new TeachingStaff(null,"Facundo","Dev","futbol");
+		teachingStaff = new TeachingStaff(null,"Facundo","Dev","voley");
 		nonTeachingStaff = new NonTeachingStaff(null,"Facu","ninguna");
 	}
 	
