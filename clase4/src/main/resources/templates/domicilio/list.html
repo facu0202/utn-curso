@@ -17,17 +17,18 @@
 					<tr>
 						<th>Id</th>
 						<th>Nombre</th>
-						<th>Apellido</th>
-						<th th:text="${hola.nombre + hola.apellido }"></th>
+
 						
 					</tr>
-					<tr th:each="persona : ${personas}">
-						<td th:text="${persona.id}"></td>
-						<td th:text="${persona.nombre}"></td>
+					<tr th:each="domi : ${domicilios}">
+						<td th:text="${domi.id}"></td>
+						<td th:text="${domi.direccion}"></td>
+						<!-- 
 						<td th:text="${persona.apellido}"></td>
 						<td><a class="btn btn-default"
 							th:href="@{/personas/modificar/} + ${persona.id}"> <span
 								class="glyphicon glyphicon-zoom-in" aria-hidden="true"></span></a></td>
+								 -->
 					</tr>
 				</table>
 			</div>

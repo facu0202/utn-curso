@@ -10,26 +10,20 @@
 		<h1 class="fragments/page-header"></h1>
 		<div class="panel panel-primary">
 			<div class="panel-heading">
-				<h3 class="panel-title">Personas</h3>
+				<h3 class="panel-title">Crear Domicilio</h3>
 			</div>
 			<div class="panel-body">
-				<table class="table table-striped data-tables">
-					<tr>
-						<th>Id</th>
-						<th>Nombre</th>
-						<th>Apellido</th>
-						<th th:text="${hola.nombre + hola.apellido }"></th>
-						
-					</tr>
-					<tr th:each="persona : ${personas}">
-						<td th:text="${persona.id}"></td>
-						<td th:text="${persona.nombre}"></td>
-						<td th:text="${persona.apellido}"></td>
-						<td><a class="btn btn-default"
-							th:href="@{/personas/modificar/} + ${persona.id}"> <span
-								class="glyphicon glyphicon-zoom-in" aria-hidden="true"></span></a></td>
-					</tr>
-				</table>
+
+				<form action="#" th:action="@{/domicilio/crear}"
+					th:object="${domicilio}" method="post">
+					
+					
+					
+					<input type="text" th:field="*{direccion}" />
+					    <input type="submit" value="Submit" /> 
+					
+					</form>
+
 			</div>
 
 		</div>
