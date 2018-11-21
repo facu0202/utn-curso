@@ -9,10 +9,10 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.curso.clase5.domain.Department;
-import com.curso.clase5.domain.Employee;
-import com.curso.clase5.repository.DepartmentRepository;
-import com.curso.clase5.repository.EmployeeRepository;
+import com.curso.clase5.domain.Subject;
+import com.curso.clase5.domain.Student;
+import com.curso.clase5.repository.SubjectRepository;
+
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,33 +20,33 @@ import org.slf4j.LoggerFactory;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @Transactional
-public class TestOneToMany {
+public class TestManytoOne {
 	
-	Logger logger = LoggerFactory.getLogger(TestManytoOne.class);
+	Logger logger = LoggerFactory.getLogger(TestOneToMany.class);
 	
-	@Autowired
-	EmployeeRepository employeeRepository;
 	
 	@Autowired
-	DepartmentRepository departmentRepository;
+	SubjectRepository subjectRepository;
 
 	@Test
 	@Rollback(false)
 	public void create() {
 		
 		
-		 //Creo un departamento con nombre Develpment
-	      Department department = new Department();
-	      department.setName("Development");
-	      departmentRepository.save(department);
+		 //Creo una materia 
+	      Subject subject = new Subject();
+	      subject.setName("materia");
 	      
-	      //Creo varios departementos y les pongo el repositorio anterior
+	      
+	      //Creo varios alumnos y les pongo la materia anterior
 	      for (int i = 0; i < 5; i++) {
-	    	  Employee employee = new Employee();
-	    	  employee.setDepartment(department);
-	    	  employee.setEname("empleado "+i);
-	    	  employeeRepository.save(employee);
+	    	  Student student = new Student();
+	    	  student.setSubject(subject);
+	    	  student.setName("estudiante "+i);
+	    	  subject.getStudents().add(student);
+
 		}
+	   subjectRepository.save(subject);
 	}
 	
 	@Test
@@ -54,7 +54,7 @@ public class TestOneToMany {
 	public void read() {
 		
 		
-		employeeRepository.findAll().forEach(x ->logger.info(x.toString()));
+		subjectRepository.findAll().forEach(x ->logger.info(x.toString()));
 	}
 	
 
