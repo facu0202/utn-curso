@@ -1,5 +1,7 @@
 package com.curso.clase5;
 
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.junit.Test;
@@ -20,15 +22,15 @@ import org.slf4j.LoggerFactory;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @Transactional
-public class TestManytoOne {
+public class TestOneToMany {
 	
-	Logger logger = LoggerFactory.getLogger(TestOneToMany.class);
+	Logger logger = LoggerFactory.getLogger(TestManyToOne.class);
 	
 	
 	@Autowired
 	SubjectRepository subjectRepository;
 
-	@Test
+	//@Test
 	@Rollback(false)
 	public void create() {
 		
@@ -53,7 +55,12 @@ public class TestManytoOne {
 	@Rollback(false)
 	public void read() {
 		
+		Iterable<Subject> list = subjectRepository.findAll();
+		for (Subject subject : list) {
+			logger.info(subject.toString());
+		}
 		
+		// Stream 
 		subjectRepository.findAll().forEach(x ->logger.info(x.toString()));
 	}
 	

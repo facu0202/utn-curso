@@ -33,7 +33,7 @@ public class TestManyToMany {
 	@Autowired
 	TeacherRepository teacherRepository;
 
-	//@Test
+	@Test
 	@Rollback(false)
 	public void create() {
 		
@@ -59,7 +59,7 @@ public class TestManyToMany {
 	}
 	
 	@Test
-//	@Rollback(false)
+	@Rollback(false)
 	public void read() {
 		
 		

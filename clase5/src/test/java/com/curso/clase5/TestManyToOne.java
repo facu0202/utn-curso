@@ -4,6 +4,8 @@ import javax.transaction.Transactional;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.Rollback;
@@ -14,15 +16,12 @@ import com.curso.clase5.domain.Employee;
 import com.curso.clase5.repository.DepartmentRepository;
 import com.curso.clase5.repository.EmployeeRepository;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @Transactional
-public class TestOneToMany {
+public class TestManyToOne {
 	
-	Logger logger = LoggerFactory.getLogger(TestManytoOne.class);
+	Logger logger = LoggerFactory.getLogger(TestManyToOne.class);
 	
 	@Autowired
 	EmployeeRepository employeeRepository;
@@ -30,7 +29,7 @@ public class TestOneToMany {
 	@Autowired
 	DepartmentRepository departmentRepository;
 
-	@Test
+	//@Test
 	@Rollback(false)
 	public void create() {
 		
@@ -53,7 +52,11 @@ public class TestOneToMany {
 	@Rollback(false)
 	public void read() {
 		
-		
+		for (Employee e : employeeRepository.findAll()) {
+			logger.info(e.toString());
+			
+		}
+		// utilizando expressiones lambda
 		employeeRepository.findAll().forEach(x ->logger.info(x.toString()));
 	}
 	

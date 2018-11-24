@@ -31,13 +31,6 @@ public class PersonaController {
 		return "persona/crear"; 
 	}
 	
-	@RequestMapping(value="/crear",method = RequestMethod.POST)
-	public String modificarEnd(Model model,@ModelAttribute Persona persona, BindingResult bindingResult)
-	{
-		personaRepository.save(persona);
-		
-		return "redirect:"; 
-	}
 	
 	@RequestMapping(value="/modificar/{id}")
 	public String modificarForm(Model model,@PathVariable("id") Long id)
