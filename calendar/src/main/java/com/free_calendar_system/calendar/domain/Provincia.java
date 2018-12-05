@@ -6,5 +6,9 @@ import javax.persistence.Entity;
 @Entity
 @DiscriminatorValue (value = "provinciaV")
 public class Provincia extends CodeDescriptionAbstract {
-
+	@Override
+	public boolean isProvincia()
+	{
+		return true;
+	}
 }

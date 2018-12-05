@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Direccion {
@@ -11,9 +12,12 @@ public class Direccion {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
-	private String pais;
-	private String provincia;
-	private String localidad;
+	@ManyToOne
+	private Pais pais;
+	@ManyToOne
+	private Provincia provincia;
+	@ManyToOne
+	private Localidad localidad;
 	private String calle;
 	private String numero;
 	private String direccion;
@@ -24,22 +28,22 @@ public class Direccion {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	public String getPais() {
+	public Pais getPais() {
 		return pais;
 	}
-	public void setPais(String pais) {
+	public void setPais(Pais pais) {
 		this.pais = pais;
 	}
-	public String getProvincia() {
+	public Provincia getProvincia() {
 		return provincia;
 	}
-	public void setProvincia(String provincia) {
+	public void setProvincia(Provincia provincia) {
 		this.provincia = provincia;
 	}
-	public String getLocalidad() {
+	public Localidad getLocalidad() {
 		return localidad;
 	}
-	public void setLocalidad(String localidad) {
+	public void setLocalidad(Localidad localidad) {
 		this.localidad = localidad;
 	}
 	public String getCalle() {

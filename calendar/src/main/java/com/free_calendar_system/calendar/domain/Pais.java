@@ -6,5 +6,9 @@ import javax.persistence.Entity;
 @Entity
 @DiscriminatorValue (value = "paisV")
 public class Pais extends CodeDescriptionAbstract {
-	
+	@Override
+	public boolean isPais()
+	{
+		return true;
+	}
 }

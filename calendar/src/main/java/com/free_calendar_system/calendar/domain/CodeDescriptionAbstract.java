@@ -21,6 +21,25 @@ public class CodeDescriptionAbstract {
 	private String codigo;
 	private String descripcion;
 	
+	
+	public boolean isPais()
+	{
+		return false;
+	}
+	
+	public boolean isProvincia()
+	{
+		return false;
+	}
+	public boolean isLocalidad()
+	{
+		return false;
+	}
+	public boolean isEspecialidad()
+	{
+		return false;
+	}
+	
 	public Long getId() {
 		return id;
 	}

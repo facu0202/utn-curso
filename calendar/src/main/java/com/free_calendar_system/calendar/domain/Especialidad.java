@@ -9,5 +9,9 @@ import javax.persistence.Id;
 @Entity
 @DiscriminatorValue (value = "especialidadV")
 public class Especialidad extends CodeDescriptionAbstract {
-
+	@Override
+	public boolean isEspecialidad()
+	{
+		return true;
+	}
 }
