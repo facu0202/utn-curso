@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head"></head>
+<body>
+	<nav th:replace="fragments/nav :: nav">.........</nav>
+	<div th:include="fragments/sideMenu :: sideMenu"></div>
+	<div
+		th:replace="fragments/deleteConfirmationModal :: deleteConfirmationModal"></div>
+	<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+		<h1 class="fragments/page-header"></h1>
+		
+		<div class="panel panel-primary">
+			<div class="panel-heading">
+				<h3 class="panel-title">Profesional Horario</h3>
+			</div>
+
+			<div class="panel-body">
+			<table class="table table-striped data-tables">
+					<tr>
+					<th>Horario</th>
+						<th>Lunes</th>
+						<th>Martes</th>
+						<th>Miercoles</th>
+						<th>Jueves</th>
+						<th>Viernes</th>
+					
+						
+					</tr>
+					<tr th:each="turno : ${turnos}">
+						<td th:text="${turno}" ></td>
+						<td th:text="${horarioDTO.isDay('Lunes',turno)}" ></td>
+						<td th:text="${horarioDTO.isDay('Martes',turno)}" ></td>
+						<td th:text="${horarioDTO.isDay('Miercoles',turno)}" ></td>
+						<td th:text="${horarioDTO.isDay('Jueves',turno)}" ></td>
+						<td th:text="${horarioDTO.isDay('Viernes',turno)}" ></td>
+					</tr>
+				</table>
+							<a class="btn btn-primary" th:href="@{/cd/crear/}" role="button">Crear</a>
+			</div>
+
+		</div>
+
+	</div>
+
+
+
+
+	<div th:include="fragments/footer :: scripts"></div>
+	<div
+		th:replace="fragments/deleteConfirmationModal :: deleteConfirmationScripts"></div>
+
+	<script th:src="@{/webjars/jquery/1.11.1/jquery.min.js}"></script>
+	<script th:src="@{/webjars/bootstrap/3.3.7-1/js/bootstrap.min.js}"></script>
+	<script th:src="@{/js/app.js}"></script>
+</body>
+</html>

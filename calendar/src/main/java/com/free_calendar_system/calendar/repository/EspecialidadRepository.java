@@ -5,5 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import com.free_calendar_system.calendar.domain.Especialidad;
 
 public interface EspecialidadRepository extends JpaRepository<Especialidad, Long> {
+	
+	public Especialidad findFirstByDescripcion(String pDescripcion);
 
 }
